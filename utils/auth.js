@@ -1,8 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { clientCredentials } from './client';
 
-const dbUrl = 'https://localhost:7033';
+const dbUrl = 'https://localhost:7252';
 
 const checkUser = (uid) => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/api/checkuser/${uid}`, {
@@ -23,7 +22,7 @@ const checkUser = (uid) => new Promise((resolve, reject) => {
 });
 
 const registerUser = (userInfo) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/register`, {
+  fetch(`${dbUrl}/api/register`, {
     method: 'POST',
     body: JSON.stringify(userInfo),
     headers: {
