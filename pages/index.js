@@ -30,7 +30,10 @@ function Home() {
             margin: '0 auto',
           }}
         >
-          <h1>Hello {user?.fbUser?.displayName}! </h1>
+          <h3>You are signed in as: {user?.fbUser?.displayName}</h3>
+          <Button className="view-order">View Orders</Button>
+          <Button className="new-order">New Order</Button>
+          <Button className="view-rev">Revenue</Button>
           <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
             Sign Out
           </Button>

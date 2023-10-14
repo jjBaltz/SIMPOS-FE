@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, //
+  Navbar,
   Container,
   Nav,
   Button,
@@ -14,17 +14,25 @@ export default function NavBar() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link passHref href="/">
-          <Navbar.Brand>CHANGE ME</Navbar.Brand>
+          <Navbar.Brand>Daddy Joes</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
             <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
+              <Nav.Link className="homeNav">Home</Nav.Link>
             </Link>
-            <Link passHref href="/delete-me">
-              <Nav.Link>Delete Me</Nav.Link>
+            <Link passHref href="/customers">
+              <Nav.Link className="custNav">Customers</Nav.Link>
+            </Link>
+            <Link passHref href="/orders">
+              <Nav.Link className="orderNav">Orders</Nav.Link>
+            </Link>
+            <Link passHref href="/order/newOrder">
+              <Nav.Link className="newNav">New Order</Nav.Link>
+            </Link>
+            <Link passHref href="/revenue">
+              <Nav.Link className="revNav">Revenue</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
