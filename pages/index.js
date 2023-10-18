@@ -1,4 +1,5 @@
 import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import RegistrationForm from '../components/forms/RegistrationForm';
 import { signOut, checkUser } from '../utils/auth';
@@ -31,9 +32,15 @@ function Home() {
           }}
         >
           <h3>You are signed in as: {user?.fbUser?.displayName}</h3>
-          <Button className="view-order">View Orders</Button>
-          <Button className="new-order">New Order</Button>
-          <Button className="view-rev">Revenue</Button>
+          <Link passHref href="/orders">
+            <Button className="view-orders">View Orders</Button>
+          </Link>
+          <Link passHref href="/order/newOrder">
+            <Button className="new-order">New Order</Button>
+          </Link>
+          <Link passHref href="/revenue">
+            <Button className="view-rev">Revenue</Button>
+          </Link>
           <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
             Sign Out
           </Button>
