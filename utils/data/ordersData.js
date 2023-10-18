@@ -1,20 +1,14 @@
 const dbUrl = 'https://localhost:7252';
 
 const getOrders = () => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/orders`, {
+  fetch(`${dbUrl}/api/orders/`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      if (data) {
-        resolve(Object.values(data));
-      } else {
-        resolve([]);
-      }
-    })
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
@@ -42,7 +36,7 @@ const deleteOrder = (id) => new Promise((resolve, reject) => {
 });
 
 const createOrder = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/orderss`, {
+  fetch(`${dbUrl}/api/orders`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
