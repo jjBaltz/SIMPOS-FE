@@ -24,13 +24,13 @@ function NewOrder({ custObj, orderObj }) {
   useEffect(() => {
     getCustomers(user.uid).then(setFormInput);
 
-    if (custObj.id) setFormInput(custObj);
+    if (custObj.customerId) setFormInput(custObj);
   }, [custObj, user]);
 
   useEffect(() => {
     getOrders(user.uid).then(setFormInput);
 
-    if (orderObj.id) setFormInput(orderObj);
+    if (orderObj.orderId) setFormInput(orderObj);
   }, [orderObj, user]);
 
   const handleChange = (e) => {
@@ -43,7 +43,7 @@ function NewOrder({ custObj, orderObj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (custObj.id) {
+    if (custObj.customerId) {
       updateCustomer(formInput)
         .then(updateOrder(formInput).then(() => router.push('/orders')));
     } else {
@@ -55,7 +55,7 @@ function NewOrder({ custObj, orderObj }) {
   return (
     <Form onSubmit={handleSubmit} style={{ width: '75%' }}>
       <div className="entry-form d-flex align-items-center justify-content-center">
-        <h2 className="text-black mt-5">{orderObj.id ? 'Update' : 'Create'} Order</h2>
+        <h2 className="text-black mt-5">{orderObj.orderId ? 'Update' : 'Create'} Order</h2>
 
         {/* FIRSTNAME INPUT  */}
         <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
@@ -63,7 +63,7 @@ function NewOrder({ custObj, orderObj }) {
             type="text"
             placeholder="First Name"
             name="firstname"
-            value={formInput.firstName}
+            value={formInput.customer?.firstName}
             onChange={handleChange}
             required
           />
@@ -75,7 +75,7 @@ function NewOrder({ custObj, orderObj }) {
             type="text"
             placeholder="Last Name"
             name="lastname"
-            value={formInput.lastName}
+            value={formInput.customer?.lastName}
             onChange={handleChange}
             required
           />
@@ -87,7 +87,7 @@ function NewOrder({ custObj, orderObj }) {
             type="text"
             placeholder="Email"
             name="email"
-            value={formInput.email}
+            value={formInput.customer?.email}
             onChange={handleChange}
             required
           />
@@ -99,7 +99,7 @@ function NewOrder({ custObj, orderObj }) {
             type="text"
             placeholder="Phone Number"
             name="phone"
-            value={formInput.phoneNumber}
+            value={formInput.customer?.phoneNumber}
             onChange={handleChange}
             required
           />
@@ -115,7 +115,7 @@ function NewOrder({ custObj, orderObj }) {
         </FloatingLabel>
 
         {/* SUBMIT BUTTON  */}
-        <Button type="submit" className="newOrd">{custObj.id ? 'Update' : 'Create'} Order</Button>
+        <Button type="submit" className="newOrd">{custObj.customerId ? 'Update' : 'Create'} Order</Button>
       </div>
     </Form>
   );
@@ -123,14 +123,14 @@ function NewOrder({ custObj, orderObj }) {
 
 NewOrder.propTypes = {
   custObj: PropTypes.shape({
-    id: PropTypes.number,
+    customerId: PropTypes.number,
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
     phoneNumber: PropTypes.string,
   }),
   orderObj: PropTypes.shape({
-    id: PropTypes.number,
+    orderId: PropTypes.number,
     status: PropTypes.string,
     type: PropTypes.string,
   }),
