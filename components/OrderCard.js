@@ -17,9 +17,9 @@ function OrderCard({ orderObj, onUpdate }) {
       <Card.Body>
         <Card.Title>#{orderObj.orderId} {orderObj.status}</Card.Title>
         <p>{orderObj.type}</p>
-        <p>{orderObj.total}</p>
+        <p>{orderObj?.total}</p>
         <p>{orderObj.paymentType}</p>
-        <p>{orderObj.rating}</p>
+        <p>{orderObj?.rating}</p>
         <Link href={`/order/${orderObj.orderId}`} passHref>
           <Button id="view" className="m-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up-right" viewBox="0 0 16 16">
@@ -48,7 +48,7 @@ function OrderCard({ orderObj, onUpdate }) {
 
 OrderCard.propTypes = {
   orderObj: PropTypes.shape({
-    orderId: PropTypes.string,
+    orderId: PropTypes.number,
     type: PropTypes.string,
     status: PropTypes.bool,
     paymentType: PropTypes.string,

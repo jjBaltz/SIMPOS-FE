@@ -19,7 +19,7 @@ const getCustomers = () => new Promise((resolve, reject) => {
 });
 
 const getSingleCustomer = (id) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/customers/${id}"`, {
+  fetch(`${dbUrl}/api/customers/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
