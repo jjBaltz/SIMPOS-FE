@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import RegistrationForm from '../components/forms/RegistrationForm';
-import { signOut, checkUser } from '../utils/auth';
+import { checkUser } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
 
 function Home() {
@@ -35,15 +35,12 @@ function Home() {
           <Link passHref href="/orders">
             <Button className="view-orders">View Orders</Button>
           </Link>
-          <Link passHref href="/order/newOrder">
+          <Link passHref href="/order/initialOrder">
             <Button className="new-order">New Order</Button>
           </Link>
           <Link passHref href="/revenue">
             <Button className="view-rev">Revenue</Button>
           </Link>
-          <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
-            Sign Out
-          </Button>
         </div>
       ) : (<RegistrationForm user={user} onUpdate={onUpdate} />)}
     </>

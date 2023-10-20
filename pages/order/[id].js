@@ -16,17 +16,17 @@ export default function ViewOrder() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-black ms-5 details">
-        <p className="cust-view">
-          {/* {orderDetails.firstName} {orderDetails.lastName}
-          {orderDetails.customer?.PhoneNumber}
-          {orderDetails.customer?.Email} */}
-        </p>
-        <p className="ord-view">
-          #{orderDetails.orderId}
-          {orderDetails.type}
-          {orderDetails.items}
-          {orderDetails.total}
-        </p>
+        <div className="cust-view">
+          <p>{orderDetails.customer?.firstName} {orderDetails.customer?.lastName}</p>
+          <p>{orderDetails.customer?.phoneNumber}</p>
+          <p>{orderDetails.customer?.email}</p>
+        </div>
+        <div className="ord-view">
+          <p>#{orderDetails.orderId}</p>
+          <p>{orderDetails.type}</p>
+          <p>{orderDetails.items}</p>
+          <p>{orderDetails.total}</p>
+        </div>
       </div>
     </div>
   );
