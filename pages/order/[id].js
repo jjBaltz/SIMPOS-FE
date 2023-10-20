@@ -17,14 +17,13 @@ export default function ViewOrder() {
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-black ms-5 details">
         <p className="cust-view">
-          {orderDetails.customer.firstName} {orderDetails.customer.LastName}
-          {orderDetails.customer.phoneNumber}
-          {orderDetails.customer.email}
+          {/* {orderDetails.firstName} {orderDetails.lastName}
+          {orderDetails.customer?.PhoneNumber}
+          {orderDetails.customer?.Email} */}
         </p>
         <p className="ord-view">
           #{orderDetails.orderId}
           {orderDetails.type}
-          <hr />
           {orderDetails.items}
           {orderDetails.total}
         </p>
