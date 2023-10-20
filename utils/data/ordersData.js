@@ -13,14 +13,14 @@ const getOrders = () => new Promise((resolve, reject) => {
 });
 
 const getSingleOrder = (id) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/orders/${id}"`, {
+  fetch(`${dbUrl}/api/orders/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then((data) => resolve(Object.values(data)))
     .catch(reject);
 });
 
