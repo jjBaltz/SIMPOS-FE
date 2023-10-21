@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSingleOrder } from '../../../utils/data/ordersData';
-import NewOrder from '../../../components/forms/newCustOrd';
+import OrderForm from '../../../components/forms/OrderForm';
 
 export default function EditOrder() {
   const [editItem, setEditItem] = useState({});
@@ -12,5 +12,5 @@ export default function EditOrder() {
     getSingleOrder(id).then(setEditItem);
   }, [id]);
 
-  return (<NewOrder obj={editItem} />);
+  return (<OrderForm obj={editItem} />);
 }

@@ -28,7 +28,7 @@ export default function NavBar() {
             <Link passHref href="/orders">
               <Nav.Link className="orderNav">Orders</Nav.Link>
             </Link>
-            <Link passHref href="/order/initialOrder">
+            <Link passHref href="/order/newOrder">
               <Nav.Link className="newNav">New Order</Nav.Link>
             </Link>
             <Link passHref href="/revenue">

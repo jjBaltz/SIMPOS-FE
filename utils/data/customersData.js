@@ -31,7 +31,7 @@ const getSingleCustomer = (id) => new Promise((resolve, reject) => {
 });
 
 const deleteCustomer = (id) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/resources/${id}`, {
+  fetch(`${dbUrl}/api/customers/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -46,16 +46,22 @@ const createCustomer = (payload) => new Promise((resolve, reject) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify(payload),
   })
-    .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then(async (res) => {
+      let data;
+      if (res.ok) {
+        data = await res.json();
+        resolve(data);
+      }
+    })
     .catch(reject);
 });
 
 const updateCustomer = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/customers/{id}`, {
+  fetch(`${dbUrl}/api/customers/${payload.customerId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

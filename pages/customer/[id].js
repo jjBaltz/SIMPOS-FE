@@ -15,11 +15,11 @@ export default function ViewCustomer() {
   return (
     <div className="mt-5 d-flex flex-wrap">
       <div className="text-black ms-5 details">
-        <p className="cust-view">
-          {customerDetails.firstName} {customerDetails.lastName}
-          {customerDetails.phoneNumber}
-          {customerDetails.email}
-        </p>
+        <div className="cust-view">
+          <p>{customerDetails.firstName} {customerDetails.lastName}</p>
+          <p>{customerDetails.phoneNumber}</p>
+          <p>{customerDetails.email}</p>
+        </div>
       </div>
     </div>
   );
