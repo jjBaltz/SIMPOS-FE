@@ -1,7 +1,7 @@
 const dbUrl = 'https://localhost:7252';
 
 const getItems = () => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/items/`, {
+  fetch(`${dbUrl}/api/items`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

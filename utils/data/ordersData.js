@@ -49,7 +49,7 @@ const createOrder = (payload) => new Promise((resolve, reject) => {
 });
 
 const updateOrder = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/orders/{id}`, {
+  fetch(`${dbUrl}/api/orders/${payload.orderId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

@@ -20,3 +20,9 @@ a {
 body {
   background-color: white;
 }
+
+.entry-form {
+  display: flex;
+  flex-flow: column;
+  margin: 20px;
+}

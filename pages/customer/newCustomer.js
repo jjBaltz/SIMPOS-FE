@@ -1,7 +1,7 @@
-import NewOrder from '../../components/forms/newCustOrd';
+import CustomerForm from '../../components/forms/CustomerForm';
 
 export default function NewCustomer() {
   return (
-    <NewOrder />
+    <CustomerForm />
   );
 }

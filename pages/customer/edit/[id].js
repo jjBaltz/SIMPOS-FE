@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getSingleCustomer } from '../../../utils/data/customersData';
-import NewOrder from '../../../components/forms/newCustOrd';
+import CustomerForm from '../../../components/forms/CustomerForm';
 
 export default function EditCustomer() {
   const [editItem, setEditItem] = useState({});
@@ -12,5 +12,5 @@ export default function EditCustomer() {
     getSingleCustomer(id).then(setEditItem);
   }, [id]);
 
-  return (<NewOrder obj={editItem} />);
+  return (<CustomerForm obj={editItem} />);
 }

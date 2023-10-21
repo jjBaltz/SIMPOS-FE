@@ -7,7 +7,7 @@ import { deleteCustomer } from '../utils/data/customersData';
 
 function CustomerCard({ custObj, onUpdate }) {
   const deleteThisCustomer = () => {
-    if (window.confirm(`Delete ${custObj.customerId}?`)) {
+    if (window.confirm(`Delete ${custObj.firstName} ${custObj.lastName}?`)) {
       deleteCustomer(custObj.customerId).then(() => onUpdate());
     }
   };
